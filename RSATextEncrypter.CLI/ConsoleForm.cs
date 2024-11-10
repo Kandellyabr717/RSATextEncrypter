@@ -28,30 +28,30 @@ public class ConsoleForm
 		try
 		{
 			TryExecute(Console.ReadLine() ?? "");
-        }
-        catch (ArgumentException)
-        {
-			return;
-        }
-        catch (IndexOutOfRangeException)
-        {
-            Console.WriteLine("\nIncorrect argument count\n");
-        }
-        catch (Exception exception)
-		{
-            Console.WriteLine("\n" + exception.Message + "\n");
 		}
-    }
+		catch (ArgumentException)
+		{
+			return;
+		}
+		catch (IndexOutOfRangeException)
+		{
+			Console.WriteLine("\nIncorrect argument count\n");
+		}
+		catch (Exception exception)
+		{
+			Console.WriteLine("\n" + exception.Message + "\n");
+		}
+	}
 
 	private void TryExecute(string input)
 	{
 		var array = input
 			.Split(' ')
 			.Where(x => x != " " && x != "")
-            .ToArray();
+			.ToArray();
 		if (array.Length == 0) throw new ArgumentException("Empty input");
-        if (!_commands.ContainsKey(array[0])) throw new Exception("Unknown command");
+		if (!_commands.ContainsKey(array[0])) throw new Exception("Unknown command");
 
 		_commands[array[0]](array[1..^0]);
-    }
+	}
 }
