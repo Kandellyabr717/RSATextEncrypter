@@ -10,7 +10,11 @@ public class ConsoleForm
         _encrypter = encrypter;
         _commands = new()
         {
-            { "genkeys", args => Console.WriteLine("\n" + _encrypter.GenerateKeys() + "\n") },
+            { "genkeys", args =>
+            {
+                _encrypter.GenerateKeys();
+                Console.WriteLine();
+            } },
             { "showkeys", args => Console.WriteLine("\n" + _encrypter.Keys + "\n") },
             { "setkeys", args =>
             {

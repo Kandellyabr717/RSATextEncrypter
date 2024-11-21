@@ -8,15 +8,14 @@ public class TextEncrypter
     public KeyPair Keys => _keys;
 
     private RSACryptoServiceProvider _provider = new();
-    public KeyPair _keys = new();
+    private KeyPair _keys = new();
 
     public TextEncrypter() => GenerateKeys();
 
-    public KeyPair GenerateKeys()
+    public void GenerateKeys()
     {
         _provider = new();
         _keys = new(_provider);
-        return _keys;
     }
 
     public void SetKeys(KeyPair keys)

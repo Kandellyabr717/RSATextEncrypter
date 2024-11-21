@@ -15,8 +15,8 @@ public struct KeyPair
         get => Convert.ToBase64String(_privateKey);
     }
 
-    public byte[] _publicKey;
-    public byte[] _privateKey;
+    private byte[] _publicKey;
+    private byte[] _privateKey;
 
     public KeyPair(RSACryptoServiceProvider provider)
     {
