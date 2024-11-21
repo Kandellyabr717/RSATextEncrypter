@@ -12,10 +12,11 @@ public class TextEncrypter
 
     public TextEncrypter() => GenerateKeys();
 
-    public void GenerateKeys()
+    public KeyPair GenerateKeys()
     {
         _provider = new();
         _keys = new(_provider);
+        return _keys;
     }
 
     public void SetKeys(KeyPair keys)
